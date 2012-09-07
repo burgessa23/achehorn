@@ -1,1 +1,342 @@
-my page
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>A C H E H O R N</title>
+		<script src="script/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script src="script/jquery.jqzoom-core.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" href="css/styles.css" type="text/css" media="screen" title="no title" charset="utf-8">
+		<link rel="stylesheet" href="css/stylesheet.css" type="text/css" charset="utf-8" />
+		<link rel="stylesheet" href="css/jquery.jqzoom.css" type="text/css" charset="utf-8" />
+		<style type="text/css" media="screen">
+		.centered {
+		  position: absolute;
+		  top: 50%;
+		  left: 50%;
+		  margin-top: -43px;
+		  margin-left: -28px;
+		}
+		.thumbBlock {
+			background-repeat: no-repeat;
+			background-color: transparent;
+		}
+			
+		</style>
+
+		<script type="text/javascript" charset="utf-8">
+			var numCache;
+			function showme(num) {
+				// figure out from the filename if this is a tall or short image
+				var imageSrc = $('#imageDeets'+num).attr('src').toString();
+				var imageHt = imageSrc.substring(parseInt(imageSrc.length-6), parseInt(imageSrc.length-4));
+				console.log("imagHt: "+imageHt);
+				if ($('#upperContentDetail').height() > 0) {
+					$('#upperContentDetail').animate({"height": "0px"}, 500); // throw callback event here to show l/r toggles
+					$('#imageDeetsAnchor_'+num).slideUp(500);
+					$('#imageDeetsAnchor_'+numCache).slideUp(500);
+					$('#detail_'+num).slideUp(500);
+					$('#detail_'+numCache).slideUp(500);
+					//$('#imageDeets'+num).slideUp(500);
+					$('#leftBtn').hide();
+					if (numCache !== num) {
+						$('#imageDeetsAnchor_'+num).delay(500).show(1,function(){
+							$(this).css({'display': 'block', 'width': '100%'});
+							$('#detail_'+num).css({'display': 'block', 'width': '100%'});
+						});
+						console.log("getting here (not first time) " + num);
+						$('#imageDeets'+num).delay(500).show(1,function(){
+							$(this).css({'display': 'block', 'width': '100%'});
+							$('#detail_'+num).css({'display': 'block', 'width': '100%'});
+						});
+						if (imageHt === 'bg') {
+							$('#upperContentDetail').animate({"height": "719px"}, 750);
+						} else {
+							$('#upperContentDetail').animate({"height": "359px"}, 750);
+							//$('#imageDeetsAnchor_'+num).jqzoom({zoomType: 'innerzoom', title: false});
+						}
+						$('#leftBtn').show();
+					};
+				} else {
+					$('#imageDeetsAnchor_'+num).css({'display': 'block', 'width': '100%'});
+					console.log("getting there (first time) " +num);
+					$('#imageDeets'+num).css({'display': 'block', 'width': '100%'});
+					$('#detail_'+num).css({'display': 'block', 'width': '100%'});
+					if (imageHt === 'bg') {
+							$('#upperContentDetail').animate({"height": "719px"}, 750);
+						} else {
+							$('#upperContentDetail').animate({"height": "359px"}, 750);
+							//$('#imageDeetsAnchor_'+num).jqzoom({zoomType: 'innerzoom',title: false});
+						}
+					$('#leftBtn').show();
+				};
+				numCache = num;
+			};
+
+			function sortThumbs(filter) {
+				$('.thumbBlock').removeClass('filtered');
+				$('.thumbBlock').show('slow');
+				$('.thumbBlock:not(.'+filter+')').hide('slow').addClass('filtered');
+				//$('.thumbBlock:not(.'+filter+')').animate({'height': '0px', 'width': '0px'}).addClass('filtered');
+				for(i=1;i<5;i++) {
+					$('.group'+i).animate({'width': '167px'}, 'slow');
+					$('.group'+i).css({'display':'block'});
+					var hasFiltered = 0;
+					$('.group_'+i).each(function(index, para){
+						if($(para).hasClass('filtered')) {
+							hasFiltered++;
+						}
+					});
+					console.log('group'+i+' filtered = '+hasFiltered);
+					if (hasFiltered === 2) {
+						$('.group'+i).animate({'width': '0px'}, 'slow');
+						hasFiltered = 0;
+					};
+				}
+
+			}
+
+			function closeAll() {
+				$('#upperContentDetail').animate({"height": "0px"}, 500); // throw callback event here to show l/r toggles
+				$('#imageDeetsAnchor_'+numCache).slideUp(500);
+				$('#imageDeetsAnchor_'+numCache).slideUp(500);
+				$('#detail_'+numCache).slideUp(500);
+				//$('#imageDeets'+numCache).slideUp(500);
+			}
+
+			function sortBoxes(group) {
+
+			}
+		</script>
+	</head>
+	<body>
+		<div class="bg">
+	    <!--start container-->
+	    <div id="container">
+			<div id="wrapitup">
+	    		<header>
+	      			<a href="#" id="logo"><img src="images/head_logo.png"/></a>  
+	  				<hr width="88%" align="center" style=" margin-top: 107px; "/>
+				  	<hr width="92%" align="center" />
+					<hr width="88%" align="center" />
+					<div id="navMenu"><p style="width:100%;"><span onclick="sortThumbs('all')">ALL</span> <span style="color:#52d6e0">|</span> <span onclick="sortThumbs('print')">PRINT</span> <span style="color:#52d6e0">|</span> <span onclick="sortThumbs('illustration')">ILLUSTRATION</span> <span style="color:#52d6e0">|</span> <span onclick="sortThumbs('packaging')">PACKAGING</span> <span style="color:#52d6e0">|</span> <span onclick="sortThumbs('apparel')">APPAREL</span> <span style="color:#52d6e0">|</span> <a href="javascript:void(0);" onclick="showme(999);">INFO</a></p></div>
+					<hr width="88%" align="center" style=" margin-top: 3px; "/>
+				  	<hr width="92%" align="center" />
+					<hr width="88%" align="center" />
+				</header>
+				<div class="holder_content" style="height: 0px;" id="upperContentDetail">
+					<div style="width:440px; float: left; margin-left: 32px; overflow: hidden; " id="detailImageWrapper">
+						<!-- <div class="centered" id="leftBtn" style="margin-top:-30px;margin-left:-354px;display:none;">
+							<img src="images/left.png" style="z-index: 6001;" onmouseover="$(this).attr('src','images/left_over.png')"  onmouseout="$(this).attr('src','images/left.png')" onclick=""/>
+						</div> -->
+						<div>
+							<a id="imageDeetsAnchor_1" style="display:none;" title="foo" class="zoomerLink">
+								<img id="imageDeets1" src="images/content/detailImages/detail_ClasscadiaLogo001.jpg" style="width:100%" alt="detail image" style="display:none;" class="zoomerLink"/>
+							</a>
+							<a id="imageDeetsAnchor_2" style="display:none;" title="foo" class="zoomerLink">
+								<img id="imageDeets2" src="images/content/detailImages/detail_BodyHeat001bg.jpg" style="width:100%" alt="detail image" style="display:none;" class="zoomerLink"/>
+							</a>
+							<a id="imageDeetsAnchor_3" style="display:none;" title="foo" class="zoomerLink">
+								<img id="imageDeets3" src="images/content/detailImages/detail_BodyHeat002bg.jpg" style="width:100%" alt="detail image" style="display:none;" class="zoomerLink"/>
+							</a>
+							<a id="imageDeetsAnchor_4" style="display:none;" title="foo" class="zoomerLink">
+								<img id="imageDeets4" src="images/content/detailImages/detail_Merc001.jpg" style="width:100%" alt="detail image" style="display:none;" class="zoomerLink"/>
+							</a>
+							<a id="imageDeetsAnchor_5" style="display:none;" title="foo" class="zoomerLink">
+								<img id="imageDeets5" src="images/content/detailImages/detail_Merc002.jpg" style="width:100%" alt="detail image" style="display:none;" class="zoomerLink"/>
+							</a>
+							<a id="imageDeetsAnchor_6" style="display:none;" title="foo" class="zoomerLink">
+								<img id="imageDeets6" src="images/content/detailImages/detail_Tees001bg.jpg" style="width:100%" alt="detail image" style="display:none;" class="zoomerLink"/>
+							</a>
+							<a id="imageDeetsAnchor_7" style="display:none;" title="foo" class="zoomerLink">
+								<img id="imageDeets7" src="images/content/detailImages/detail_BodyHeat003bg.jpg" style="width:100%" alt="detail image" style="display:none;" class="zoomerLink"/>
+							</a>
+							<a id="imageDeetsAnchor_8" style="display:none;" title="foo" class="zoomerLink">
+								<img id="imageDeets8" src="images/content/detailImages/detail_Merc003.jpg" style="width:100%" alt="detail image" style="display:none;" class="zoomerLink"/>
+							</a>
+							<a id="imageDeetsAnchor_999" style="display:none;" title="foo" class="zoomerLink">
+								<div id="imageDeets999" style="float:left;width:100%!important;background-color:#5b6471;height:320px;" src="images/content/detailImages/detail_Merc003.jpg">
+									<img  src="images/tiff_prof.jpg" alt="Tiffany" />
+									<p style="padding-left:7px;">here is some text</p>
+					  			</div>
+							</a>
+						</div>
+						
+					</div>
+					<section class="group3_detail" style="background-color: #5b6471;width: 220px;margin-left: 7px;">
+					<span id="detail_1" style="display:none;">
+						<h4>CLASSCADIA LOGO</h4>
+						<p>2012</p>
+						<p>CLASSCADIA</p>
+						<hr class="blueHR" width="190" align="center" style=" margin-top: 20px; "/>
+					  	<hr class="blueHR" width="216" align="center" />
+						<hr class="blueHR" width="190" align="center" style=" margin-bottom: -3px; "/>
+						<h4>DESCRIPTION GOES HERE</h4>
+						<p>SO RAD</p>
+						<p>OH BABY!</p>
+						<hr class="blueHR" width="190" align="center" style=" margin-top: 20px; "/>
+					  	<hr class="blueHR" width="216" align="center" />
+						<hr class="blueHR" width="190" align="center" style=" margin-bottom: -3px; "/>
+						<h4>FILE UNDER</h4>
+						<p>PRINT</p>
+					</span>
+					<span id="detail_2" style="display:none;">
+						<h4>BODY HEAT POSTER</h4>
+						<p>2012</p>
+						<p>CLASSCADIA</p>
+						<hr class="blueHR" width="190" align="center" style=" margin-top: 20px; "/>
+					  	<hr class="blueHR" width="216" align="center" />
+						<hr class="blueHR" width="190" align="center" style=" margin-bottom: -3px; "/>
+						<h4>DESCRIPTION GOES HERE</h4>
+						<p>SO RAD</p>
+						<p>OH BABY!</p>
+						<hr class="blueHR" width="190" align="center" style=" margin-top: 20px; "/>
+					  	<hr class="blueHR" width="216" align="center" />
+						<hr class="blueHR" width="190" align="center" style=" margin-bottom: -3px; "/>
+						<h4>FILE UNDER</h4>
+						<p>PRINT</p>
+					</span>
+					<span id="detail_3" style="display:none;">
+						<h4>BODY HEAT POSTER</h4>
+						<p>2012</p>
+						<p>CLASSCADIA</p>
+						<hr class="blueHR" width="190" align="center" style=" margin-top: 20px; "/>
+					  	<hr class="blueHR" width="216" align="center" />
+						<hr class="blueHR" width="190" align="center" style=" margin-bottom: -3px; "/>
+						<h4>DESCRIPTION GOES HERE</h4>
+						<p>SO RAD</p>
+						<p>OH BABY!</p>
+						<hr class="blueHR" width="190" align="center" style=" margin-top: 20px; "/>
+					  	<hr class="blueHR" width="216" align="center" />
+						<hr class="blueHR" width="190" align="center" style=" margin-bottom: -3px; "/>
+						<h4>FILE UNDER</h4>
+						<p>PRINT</p>
+					</span>
+					<span id="detail_4" style="display:none;">
+						<h4>MERCER LONGBOARDS LOGO</h4>
+						<p>2012</p>
+						<p>CLASSCADIA</p>
+						<hr class="blueHR" width="190" align="center" style=" margin-top: 20px; "/>
+					  	<hr class="blueHR" width="216" align="center" />
+						<hr class="blueHR" width="190" align="center" style=" margin-bottom: -3px; "/>
+						<h4>DESCRIPTION GOES HERE</h4>
+						<p>SO RAD</p>
+						<p>OH BABY!</p>
+						<hr class="blueHR" width="190" align="center" style=" margin-top: 20px; "/>
+					  	<hr class="blueHR" width="216" align="center" />
+						<hr class="blueHR" width="190" align="center" style=" margin-bottom: -3px; "/>
+						<h4>FILE UNDER</h4>
+						<p>PRINT</p>
+					</span>
+					<span id="detail_999" style="display:none;">
+						<h4>GET IN TOUCH</h4>
+						<p>TIFFANY ANN SMITH</p>
+						<p>WRITE: TIFFANYASMITH@GMAIL.COM</p>
+						<hr class="blueHR" width="190" align="center" style=" margin-top: 20px; "/>
+					  	<hr class="blueHR" width="216" align="center" />
+						<hr class="blueHR" width="190" align="center" style=" margin-bottom: -3px; "/>
+						<h4>OTHER PLACES</h4>
+						<p>TUMBLR</p>
+						<p>TWITTER</p>
+						<p>LINKED IN</p>
+					</span>
+			  		</section>
+					<br/>
+					<div class="holder_content" style="padding-top: 19px;">
+	  					<hr width="88%" align="center" />
+				  		<hr width="92%" align="center" />
+						<hr width="88%" align="center" />
+						<div class="centered" style=" margin-top: -12px; ">
+							<img src="images/up.png" onmouseover="$(this).attr('src','images/up_over.png')"  onmouseout="$(this).attr('src','images/up.png')" onclick="closeAll()"/>
+						</div>
+					</div>
+				</div>
+				<div class="holder_content" style="padding-top: 7px;">
+	      			<section class="group1">
+						<div class="thumbBlock illustration all group_1" style="margin-bottom: 12px;background-image: url('images/content/thumbImages/thumb_ClassLogo001.jpg');" onmouseover="$('#g1c1sub').animate({'opacity': '0.8'}, 300)"  onmouseout="$('#g1c1sub').animate({'opacity': '0.0'}, 300)" onclick="showme(1);">
+							
+						</div>
+						<div id="g1c1sub" style="position: absolute;background-color:#5B6471;height: 25px;width: 150px;min-height: 25px;top: 143px;overflow:hidden;opacity:0.0;padding-left:10px;">
+							<span style="text-align:center;">Classcadia Logo</span>
+						</div>
+						<div class="thumbBlock print all group_1" style="background-image: url('images/content/thumbImages/thumb_BodyHeat001.jpg');"  onmouseover="$('#g1c2sub').animate({'opacity': '0.8'}, 300)"  onmouseout="$('#g1c2sub').animate({'opacity': '0.0'}, 300)" onclick="showme(2);">
+							
+						</div>
+						<div id="g1c2sub" style="position: absolute;background-color:#5B6471;height: 25px;width: 150px;min-height: 25px;top: 323px;overflow:hidden;opacity:0.0;padding-left:10px;">
+							<span style="text-align:center;">Body Heat Poster</span>
+						</div>
+						
+		  			</section>
+					<section class="group2">
+						<div class="thumbBlock print all group_2" style="margin-bottom: 12px;background-image: url('images/content/thumbImages/thumb_BodyHeat002.jpg');"  onmouseover="$('#g2c1sub').animate({'opacity': '0.8'}, 300)"  onmouseout="$('#g2c1sub').animate({'opacity': '0.0'}, 300)" onclick="showme(3);">
+							
+						</div>
+						<div id="g2c1sub" style="position: absolute;background-color:#5B6471;height: 25px;width: 152px;min-height: 25px;top: 143px;overflow:hidden;opacity:0.0;padding-left:10px;">
+							<span style="text-align:center;">Body Heat Poster</span>
+						</div>
+						<div class="thumbBlock illustration all group_2" style="background-image: url('images/content/thumbImages/thumb_Merc001.jpg');" onmouseover="$('#g2c2sub').animate({'opacity': '0.8'}, 300)"  onmouseout="$('#g2c2sub').animate({'opacity': '0.0'}, 300)" onclick="showme(4);">
+							
+						</div>
+						<div id="g2c2sub" style="position: absolute;background-color:#5B6471;height: 25px;width: 151px;min-height: 25px;top: 323px;overflow:hidden;opacity:0.0;padding-left:10px;">
+							<span style="text-align:center;">Mercer Logo</span>
+						</div>
+						
+			  		</section>
+					<section class="group3">
+						<div class="thumbBlock illustration all group_3" style="margin-bottom: 12px;background-image: url('images/content/thumbImages/thumb_Merc002.jpg');" onmouseover="$('#g3c1sub').animate({'opacity': '0.8'}, 300)"  onmouseout="$('#g3c1sub').animate({'opacity': '0.0'}, 300)" onclick="showme(5);">
+							
+						</div>
+						<div id="g3c1sub" style="position: absolute;background-color:#5B6471;height: 25px;width: 158px;min-height: 25px;top: 143px;overflow:hidden;opacity:0.0;padding-left:10px;">
+							<span style="text-align:center;color:#fff;">Mercer Longboards</span>
+						</div>
+						<div class="thumbBlock apparel all group_3" style="background-image: url('images/content/thumbImages/thumb_Tees001.jpg');" onmouseover="$('#g3c2sub').animate({'opacity': '0.8'}, 300)"  onmouseout="$('#g3c2sub').animate({'opacity': '0.0'}, 300)" onclick="showme(6);">
+							
+						</div>
+						<div id="g3c2sub" style="position: absolute;background-color:#5B6471;height: 25px;width: 159px;min-height: 25px;top: 323px;overflow:hidden;opacity:0.0;padding-left:10px;">
+							<span style="text-align:center;color:#fff;">Alab Clothing</span>
+						</div>
+			  		</section>
+			  	<section class="group4">
+						<div class="thumbBlock illustration all group_4" style="margin-bottom: 12px;background-image: url('images/content/thumbImages/thumb_Merc003.jpg');" onmouseover="$('#g2c3sub').animate({'opacity': '0.8'}, 300)"  onmouseout="$('#g2c3sub').animate({'opacity': '0.0'}, 300)" onclick="showme(8);">
+							
+						</div>
+						<div id="g2c3sub" style="position: absolute;background-color:#5B6471;height: 25px;width: 158px;min-height: 25px;top: 143px;overflow:hidden;opacity:0.0;padding-left:10px;">
+							<span style="text-align:center;">Mercer Longboards</span>
+						</div>
+						<div class="thumbBlock print all group_4" style="background-image: url('images/content/thumbImages/thumb_BodyHeat003.jpg');"  onmouseover="$('#g1c3sub').animate({'opacity': '0.8'}, 300)"  onmouseout="$('#g1c3sub').animate({'opacity': '0.0'}, 300)" onclick="showme(7);">
+							
+						</div>
+						<div id="g1c3sub" style="position: absolute;background-color:#5B6471;height: 25px;width: 158px;min-height: 25px;top: 323px;overflow:hidden;opacity:0.0;padding-left:10px;">
+							<span style="text-align:center;">Body Heat Poster</span>
+						</div>
+			  		</section>
+		   		</div>
+				<div class="holder_content">
+					<hr width="88%" align="center"  style=" margin-top: 3px; "/>
+				  	<hr width="92%" align="center" />
+					<hr width="88%" align="center" />
+					<div class="centered">
+						<img src="images/AH.png"/>
+					</div>
+					<section class="group5">
+			         <article>
+						<div style="padding-top: 14px; padding-left: 47px;">
+			         	<span>&copy; 2012 TIFFANY ANN SMITH. ALL RIGHTS RESERVED.</span>
+						</div>
+					 </article> 
+			       </section>
+			   </div>
+		   </div>
+		</div>
+		   <!--end container-->
+		   <!--start footer-->
+		   <footer>
+		      <div class="container">  
+
+		      </div>
+		   </footer>
+		   <!--end footer-->
+		   </div>
+		   <!--end bg-->
+		  </body>
+		</html>
+	</body>
+</html>

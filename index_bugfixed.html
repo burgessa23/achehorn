@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>A C H E H O R N</title>
+		<script src="script/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script src="script/jquery.jqzoom-core.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" href="css/styles.css" type="text/css" media="screen" title="no title" charset="utf-8">
+		<link rel="stylesheet" href="css/stylesheet.css" type="text/css" charset="utf-8" />
+		<link rel="stylesheet" href="css/jquery.jqzoom.css" type="text/css" charset="utf-8" />
+		<style type="text/css" media="screen">
+		.centered {
+		  position: absolute;
+		  top: 50%;
+		  left: 50%;
+		  margin-top: -43px;
+		  margin-left: -28px;
+		}
+			
+		</style>
+
+		<script type="text/javascript" charset="utf-8">
+			var numCache;
+			function showme(num) {
+				if ($('#upperContentDetail').height() > 0) {
+					$('#upperContentDetail').animate({"height": "0px"}, 500); // throw callback event here to show l/r toggles
+					$('#imageDeetsAnchor_'+num).slideUp(500);
+					$('#imageDeetsAnchor_'+numCache).slideUp(500);
+					$('#imageDeets'+num).slideUp(500);
+					$('#leftBtn').hide();
+					if (numCache !== num) {
+						$('#imageDeetsAnchor_'+num).delay(500).show(1);
+						console.log("getting here (not first time) " + num);
+						$('#imageDeets'+num).delay(500).show(1);
+						if (num == 2) {
+							$('#upperContentDetail').animate({"height": "661px"}, 750);
+						} else {
+							$('#upperContentDetail').animate({"height": "359px"}, 750);
+							//$('#imageDeetsAnchor_'+num).jqzoom({zoomType: 'innerzoom', title: false});
+						}
+						$('#leftBtn').show();
+					};
+				} else {
+					$('#imageDeetsAnchor_'+num).css('display', 'block');
+					console.log("getting there (first time) " +num);
+					$('#imageDeets'+num).css('display', 'block');
+					if (num == 2) {
+							$('#upperContentDetail').animate({"height": "661px"}, 750);
+						} else {
+							$('#upperContentDetail').animate({"height": "359px"}, 750);
+							//$('#imageDeetsAnchor_'+num).jqzoom({zoomType: 'innerzoom',title: false});
+						}
+					$('#leftBtn').show();
+				};
+				numCache = num;
+			};
+
+			function sortBoxes(group) {
+
+			}
+		</script>
+	</head>
+	<body>
+		<div class="bg">
+	    <!--start container-->
+	    <div id="container">
+			<div id="wrapitup">
+	    		<header>
+	      			<a href="#" id="logo"><img src="images/head_logo.png"/></a>  
+	  				<hr width="88%" align="center" style=" margin-top: 107px; "/>
+				  	<hr width="92%" align="center" />
+					<hr width="88%" align="center" />
+					<div id="navMenu"><p style="width:740px;"><a href="index.html">ALL</a> <span style="color:#52d6e0">|</span> RECENT <span style="color:#52d6e0">|</span> PRINT <span style="color:#52d6e0">|</span> ILLUSTRATION <span style="color:#52d6e0">|</span> PACKAGING <span style="color:#52d6e0">|</span> APPAREL <span style="color:#52d6e0">|</span> <a href="info.html">INFO</a></p></div>
+					<hr width="88%" align="center" style=" margin-top: 3px; "/>
+				  	<hr width="92%" align="center" />
+					<hr width="88%" align="center" />
+				</header>
+				<div class="holder_content" style="height: 0px;" id="upperContentDetail">
+					<div style="width:440px; float: left; margin-left: 32px; overflow: hidden; ">
+						<!-- <div class="centered" id="leftBtn" style="margin-top:-30px;margin-left:-354px;display:none;">
+							<img src="images/left.png" style="z-index: 6001;" onmouseover="$(this).attr('src','images/left_over.png')"  onmouseout="$(this).attr('src','images/left.png')" onclick=""/>
+						</div> -->
+						<div>
+							<a href="images/content/detailImages/detail_1_big.jpg" id="imageDeetsAnchor_1" style="display:none;" title="foo" class="zoomerLink">
+								<img id="imageDeets1" src="images/content/detailImages/detail_1.jpg" style="width:100%" alt="detail image" style="display:none;" class="zoomerLink"/>
+							</a>
+							<a href="images/content/detailImages/detail_2_big.jpg" id="imageDeetsAnchor_2" style="display:none;" title="foo" class="zoomerLink">
+								<img id="imageDeets2" src="images/content/detailImages/detail_2.jpg" style="width:100%" alt="detail image" style="display:none;" class="zoomerLink"/>
+							</a>
+							<a href="images/content/detailImages/detail_3_big.jpg" id="imageDeetsAnchor_3" style="display:none;" title="foo" class="zoomerLink">
+								<img id="imageDeets3" src="images/content/detailImages/detail_3.jpg" style="width:100%" alt="detail image" style="display:none;" class="zoomerLink"/>
+							</a>
+							<a href="images/content/detailImages/detail_4_big.jpg" id="imageDeetsAnchor_4" style="display:none;" title="foo" class="zoomerLink">
+								<img id="imageDeets4" src="images/content/detailImages/detail_4.jpg" style="width:100%" alt="detail image" style="display:none;" class="zoomerLink"/>
+							</a>
+							<a href="images/content/detailImages/detail_5_big.jpg" id="imageDeetsAnchor_5" style="display:none;" title="foo" class="zoomerLink">
+								<img id="imageDeets5" src="images/content/detailImages/detail_5.jpg" style="width:100%" alt="detail image" style="display:none;" class="zoomerLink"/>
+							</a>
+							<a href="images/content/detailImages/detail_6_big.jpg" id="imageDeetsAnchor_6" style="display:none;" title="foo" class="zoomerLink">
+								<img id="imageDeets6" src="images/content/detailImages/detail_6.jpg" style="width:100%" alt="detail image" style="display:none;" class="zoomerLink"/>
+							</a>
+						</div>
+						
+					</div>
+					<section class="group3" style="background-color: #5b6471;">
+						<h4>BODY HEAT POSTERS</h4>
+						<p>2012</p>
+						<p>CLASSCADIA</p>
+						<hr class="blueHR" width="190" align="center" style=" margin-top: 20px; "/>
+					  	<hr class="blueHR" width="216" align="center" />
+						<hr class="blueHR" width="190" align="center" style=" margin-bottom: -3px; "/>
+						<h4>DESCRIPTION GOES HERE</h4>
+						<p>SO RAD</p>
+						<p>OH BABY!</p>
+						<hr class="blueHR" width="190" align="center" style=" margin-top: 20px; "/>
+					  	<hr class="blueHR" width="216" align="center" />
+						<hr class="blueHR" width="190" align="center" style=" margin-bottom: -3px; "/>
+						<h4>FILE UNDER</h4>
+						<p>PRINT</p>
+			  		</section>
+					<br/>
+					<div class="holder_content" style="padding-top: 19px;">
+	  					<hr width="88%" align="center" />
+				  		<hr width="92%" align="center" />
+						<hr width="88%" align="center" />
+						<div class="centered" style=" margin-top: -12px; ">
+							<img src="images/up.png" onmouseover="$(this).attr('src','images/up_over.png')"  onmouseout="$(this).attr('src','images/up.png')" />
+						</div>
+					</div>
+				</div>
+				<div class="holder_content" style="padding-top: 7px;">
+	      			<section class="group1">
+						<div onmouseover="$('#g1c1sub').animate({'opacity': '0.8'}, 300)"  onmouseout="$('#g1c1sub').animate({'opacity': '0.0'}, 300)" onclick="showme(1);">
+							foo
+						</div>
+						<div id="g1c1sub" style="position: absolute;background-color:#5B6471;height: 25px;width: 212px;min-height: 25px;top: 177px;overflow:hidden;opacity:0.0;padding-left:10px;">
+							<span style="text-align:center;">Description Goes Here</span>
+						</div>
+						<div style="margin-top: 12px;"  onmouseover="$('#g1c2sub').animate({'opacity': '0.8'}, 300)"  onmouseout="$('#g1c2sub').animate({'opacity': '0.0'}, 300)" onclick="showme(2);">
+							foo
+						</div>
+						<div id="g1c2sub" style="position: absolute;background-color:#5B6471;height: 25px;width: 212px;min-height: 25px;top: 391px;overflow:hidden;opacity:0.0;padding-left:10px;">
+							<span style="text-align:center;">Description Goes Here</span>
+						</div>
+		  			</section>
+					<section class="group2">
+						<div onmouseover="$('#g2c1sub').animate({'opacity': '0.8'}, 300)"  onmouseout="$('#g2c1sub').animate({'opacity': '0.0'}, 300)" onclick="showme(3);">
+							bar
+						</div>
+						<div id="g2c1sub" style="position: absolute;background-color:#5B6471;height: 25px;width: 208px;min-height: 25px;top: 177px;overflow:hidden;opacity:0.0;padding-left:10px;">
+							<span style="text-align:center;">Description Goes Here</span>
+						</div>
+						<div style="margin-top: 12px;" onmouseover="$('#g2c2sub').animate({'opacity': '1.0'}, 300)"  onmouseout="$('#g2c2sub').animate({'opacity': '0.0'}, 300)" onclick="showme(4);">
+							foo
+						</div>
+						<div id="g2c2sub" style="position: absolute;background-color:#5B6471;height: 25px;width: 208px;min-height: 25px;top: 391px;overflow:hidden;opacity:0.0;padding-left:10px;">
+							<span style="text-align:center;">Description Goes Here</span>
+						</div>
+			  		</section>
+					<section class="group3">
+						<div onmouseover="$('#g3c1sub').animate({'opacity': '0.8'}, 300)"  onmouseout="$('#g3c1sub').animate({'opacity': '0.0'}, 300)" onclick="showme(5);">
+							baz
+						</div>
+						<div id="g3c1sub" style="position: absolute;background-color:#5B6471;height: 25px;width: 210px;min-height: 25px;top: 177px;overflow:hidden;opacity:0.0;padding-left:10px;">
+							<span style="text-align:center;color:#fff;">Description Goes Here</span>
+						</div>
+						<div style="margin-top: 12px;" onmouseover="$('#g3c2sub').animate({'opacity': '0.8'}, 300)"  onmouseout="$('#g3c2sub').animate({'opacity': '0.0'}, 300)" onclick="showme(6);">
+							foo
+						</div>
+						<div id="g3c2sub" style="position: absolute;background-color:#5B6471;height: 25px;width: 210px;min-height: 25px;top: 391px;overflow:hidden;opacity:0.0;padding-left:10px;">
+							<span style="text-align:center;color:#fff;">Description Goes Here</span>
+						</div>
+			  		</section>
+		   		</div>
+				<div class="holder_content">
+					<hr width="88%" align="center"  style=" margin-top: 3px; "/>
+				  	<hr width="92%" align="center" />
+					<hr width="88%" align="center" />
+					<div class="centered">
+						<img src="images/AH.png"/>
+					</div>
+					<section class="group4">
+			         <article>
+						<div style="padding-top: 14px; padding-left: 47px;">
+			         	<span>&copy; 2012 TIFFANY ANN SMITH. ALL RIGHTS RESERVED.</span>
+						</div>
+					 </article> 
+			       </section>
+			   </div>
+		   </div>
+		</div>
+		   <!--end container-->
+		   <!--start footer-->
+		   <footer>
+		      <div class="container">  
+
+		      </div>
+		   </footer>
+		   <!--end footer-->
+		   </div>
+		   <!--end bg-->
+		  </body>
+		</html>
+	</body>
+</html>

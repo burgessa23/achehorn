@@ -1,0 +1,643 @@
+/***************************************************
+			      Reset
+***************************************************/
+td a, html, body, div, span, h1, h2, h3, h4, h5, h6, p, ol, ul, li, form, label, legend, caption, aside, details, figcaption, figure, footer,header, hgroup, menu, nav, section, summary {
+   margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+
+hr {
+	position: relative;
+	border: 0px;
+	margin-top: -3px;
+	border-top: 2px solid #e34233;
+}
+
+th {
+	display: none;
+}
+
+hgroup {
+	padding: 8px;
+	position: absolute;
+	top: 0px;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+a img {
+   border: none
+}
+
+aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {display: block}
+
+/***************************************************
+			      Global styles
+***************************************************/
+
+html {
+	width: 100%;
+	height: 100%;
+}
+
+table {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	color: #DDDDDD;
+	margin: 0 0 1px; height: 100%; 
+	line-height: 1.7;
+	border-top: 1px solid #eee;
+	width: 96%;
+}
+
+th {
+	font-size: 16px;
+	text-align: left;
+}
+
+td {
+	font-size: 13px;
+	text-align: left;
+}
+
+td a {
+	color: #DDDDDD;
+}
+
+
+body {
+    font-family: 'ArnoProRegular';
+	font-size: 13px;
+	background-color: white;
+	color: #fff;
+	margin: 0 0 1px; height: 100%; 
+	line-height: 1.7;
+	background: url('../images/AHBG.jpg');
+	background-repeat: repeat;
+	background-position:  left top;
+}
+
+
+
+p {
+	margin-top: 0px;
+}
+	
+a, p a {
+	text-decoration: underline;
+	color: #52d6e0;
+}
+	
+a: hover {
+   color: white;
+}
+
+h1, h2, h3, h4, h5, h6 {
+   font-family: Arial, Helvetica, sans-serif;
+   font-weight: normal;
+	position: relative;
+}
+
+h1 {
+	font-size: 60px;
+	float: left;
+	top: 28px;
+	line-height: 0.9;
+	color: #dddddd;
+	text-align: left;
+	min-height:80px;
+	min-width:260px;
+	
+}
+
+ h1 span {
+	font-size: 25px;
+	line-height: 12px;
+	color: #f6f6f6;
+	margin-left: 10px;
+}
+	
+h2 {
+	font-size: 15px;
+	line-height: 1.8;
+	color: #f6f6f6;
+	text-align: left;
+	margin-bottom: 7px;
+	margin-top: 10px;
+	padding-bottom: 12px;
+}
+	
+h3, th a {
+	font-size: 15px;
+	line-height: 0.9;
+	color: #E26931;
+	text-align: left;
+	margin-bottom: 6px;
+	padding-bottom: 5px;
+}
+
+h4 {
+	font-size: 19px;
+	line-height: 0.9;
+	color: #fff;
+	text-align: left;
+	margin-bottom: 8px;
+	padding-top: 16px;
+	padding-left: 15px;
+	font-family: 'FranchiseRegular';
+	
+}
+
+/***************************************************
+			    Main containers
+***************************************************/
+
+#global_container, #container_left, #container_right {
+	position: relative;
+	width: 100%;
+}
+	
+#global_container {
+	position: relative;
+	width: 740px;
+	margin: 0 auto;
+	background-color: transparent;
+	min-height: 100%;
+}
+
+.group1 {
+	float: left;
+	width: 168px;
+	min-height: 320px;
+	position: relative;
+	background: transparent;
+	padding-left: 32px;
+	margin-bottom: 10px;
+}
+	
+.group2 {
+	float: left;
+	width: 168px;
+	min-height: 320px;
+	position: relative;
+	background: transparent;
+	margin-bottom: 10px;
+}
+	
+.group3 {
+	float: left;
+	width: 168px;
+	min-height: 320px;
+	position: relative;
+	background: transparent;
+	margin-right: 7px;
+	color: #52d6e0;
+}
+
+.group3_detail {
+	float: left;
+	width: 168px;
+	min-height: 320px;
+	position: relative;
+	background: transparent;
+	margin-right: 7px;
+	color: #52d6e0;
+}
+
+.group4 {
+	float: left;
+	width: 167px;
+	min-height: 320px;
+	position: relative;
+	background: transparent;
+	margin-right: 30px;
+	color: #fff;
+}
+
+.group3 p {
+	padding-left: 15px;
+	margin-right: 10px;
+	font-size: 11px;
+}
+
+.group3_detail p {
+	padding-left: 15px;
+	margin-right: 10px;
+	font-size: 11px;
+}
+
+.group1 div {
+	/*background-color: #eee;*/
+	margin-right: 9px;
+	min-height: 168px;
+	font-family: 'FranchiseRegular';
+	font-size: 18px;
+	overflow: hidden;
+}
+
+
+.group2 div {
+	/*background-color: #eee;*/
+	margin-right: 7px;
+	min-height: 168px;
+	font-family: 'FranchiseRegular';
+	font-size: 18px;	
+	overflow: hidden;
+}
+
+.group3 div {
+	background-color: #eee;
+	min-height: 168px;
+	font-family: 'FranchiseRegular';
+	font-size: 18px;
+	overflow: hidden;	
+}
+
+.group3_detail div {
+	background-color: #eee;
+	min-height: 168px;
+	font-family: 'FranchiseRegular';
+	font-size: 18px;
+	overflow: hidden;	
+}
+
+.group4 div {
+	background-color: #eee;
+	min-height: 168px;
+	font-family: 'FranchiseRegular';
+	font-size: 18px;
+	overflow: hidden;	
+}
+
+.group5 {
+	float: left;
+	width: 740px;
+	position: relative;
+	margin-bottom: 25px;
+	background: transparent;
+	border-width: 90%;
+	font-size: 11px;
+	overflow: hidden;
+	/*-moz-column-count: 3; /* Firefox */
+	/*-webkit-column-count: 3; /* Safari and Chrome */
+	/*column-count: 3;	
+	/*-moz-column-gap: 40px; /* Firefox */
+	/*-webkit-column-gap: 40px; /* Safari and Chrome */
+	/*column-gap: 40px;	
+	/*-moz-column-rule: 1px solid #e34233; /* Firefox */
+	/*-webkit-column-rule: 1px solid #e34233; /* Safari and Chrome */
+	/*column-rule: 1px solid #A3A3A3;*/
+}
+	
+#navMenu {
+	width:100%;
+	margin-top: 10px;
+	text-align:center;
+	font-family: 'FranchiseRegular';
+	font-size: 20px;
+}	
+
+#navMenu a {
+	color: #FFF;
+	text-decoration: none;
+}
+
+header {
+	position: relative;
+	background-color: #3d4859;
+	float: left;
+	width: 740px;
+	height: 182px;
+}
+
+.headerPic {
+	position: absolute;
+	float: left;
+	width: 100%;
+	height: 350px;
+wood3	background-repeat: repeat;
+	background-position: center;	
+}
+	
+	
+/***************************************************
+				INTRO
+***************************************************/	
+	
+#intro {
+	width: 740px;
+	position: relative;
+	float: left;
+	height: 130px;
+}
+
+/***************************************************
+				   HOLDERS
+***************************************************/	
+
+.holder_content {
+	position: relative;
+	float: left;
+	width: 100%;
+	padding-top: 10px;
+	background: #3d4859;
+}
+	
+.holder_content_separator{
+	margin-bottom: 20px;
+}
+	
+/***************************************************
+			        GALLERY
+***************************************************/
+	 	 
+a.photo_hover3 {
+	position: relative;
+	float: left;
+	margin: 16px 13px 8px 0;
+	padding: 8px;
+   background-color: white;
+	border: 1px solid #D6D6D6;
+}
+
+a.photo_hover3: hover {
+	border: 1px solid #D6D6D6;
+	background-color: transparent;
+	opacity: 0.9;
+	z-index: 1000;
+}
+	
+a.photo_hover2 {
+	position: relative;
+	float: right;
+	margin: 5px 13px 8px 0;
+	padding: 8px;
+   background-color: white;
+	border: 1px solid #E1E1E1;
+}
+
+a.photo_hover2: hover {
+	border: 1px dotted #66CCFF;
+	background-color: #C7EDFF;
+	opacity: 0.9;
+	z-index: 1000;
+}
+
+
+/***************************************************
+			        FOOTER
+***************************************************/
+
+footer {
+	position: relative;
+	height: 30px;
+	clear: both;
+	width: 100%;
+}
+
+#FooterOne, #FooterTwo, #FooterTree {
+	position: absolute;	
+}
+
+#FooterTwo {
+	position: absolute;
+	right: 225px;
+	top: 26px;
+	color: white;
+}
+
+#FooterTree {
+	position: absolute;
+	left: 225px;
+	top: 26px;
+	color: white;
+}
+
+.container {
+   width: 740px;
+   margin: 0 auto;
+	background-color: #33CC99;
+}
+
+/***************************************************
+				       MENU
+***************************************************/
+
+nav {
+	position: absolute;
+	width: 534px;
+	top: 38px;
+	left: 450px;
+	background: transparent;
+	border-top: 1px solid #A3A3A3;
+	border-bottom: 1px solid #A3A3A3;
+}
+
+nav ul li {
+	float: left;
+	margin-left: 16px;
+	line-height: normal;
+}
+
+nav ul li a {
+	font-size: 13px;
+   font-family: Arial, Helvetica, sans-serif;
+	color: #666666;
+	font-weight: normal;
+	display: block;	/* IE6, IE7 line height fix */
+	padding-bottom: 10px;
+	padding-top: 5px;
+	background-color: transparent;
+	margin-top: 5px;
+	margin-right: 6px;
+   text-decoration: none;
+}
+
+nav ul li a: hover {
+	color: #CC3333;
+}
+
+nav ul li a.current {
+	color: #CC3333;
+}
+
+.content_menu {
+	float: left;
+	width: 274px;
+	margin-top: -10px;
+	margin-bottom: 15px;
+}
+	
+.content_menu ul {	
+	margin: 0px;
+	padding: 0px;
+	float: none;
+}
+
+.content_menu ul li {
+	float: none;
+	padding-bottom: 16px;
+}
+
+
+.content_menu ul li a {
+	font-size: 13px;
+	line-height: normal;
+   color: #33CC99;
+	text-align: left;
+	text-decoration: none;
+	background-image: url(images/circle.png);
+	background-position: left;
+	background-repeat: no-repeat;
+	padding-left: 20px;
+}
+	
+.content_menu ul li a: hover {
+   color: #33CC99;
+}
+
+/***************************************************
+				   SPECIFIC
+***************************************************/
+
+#logo {
+	position: absolute;
+	right: 256px;
+	width: 228px;
+	height: 70px;
+	top: 26px;
+}
+
+.clearing {
+	clear: both;
+	display: inline;
+	width: 100%;
+	height: 0;
+	overflow: hidden;
+}
+ 	
+.button {
+	width: 66px;
+	height: 13px;
+	position: relative;
+	margin-top: 12px;
+	padding: 9px;
+	background-color: black;
+	display: inline-block;
+	color: white;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	font: 12px/100% Arial, Helvetica, sans-serif;
+}
+	
+.button: hover {
+	background-color: #333333;
+}
+
+.button: active {
+	position: relative;
+	top: 1px;
+}
+
+@media screen and (max-width: 666px) {
+	
+
+
+	
+	h2 {
+		display: none;
+	}
+	
+
+	
+	h1 {
+		display: none;
+		//background: url('images/title_alt.png');
+		//		background-size:100%;
+		//		background-repeat: no-repeat;
+		//		min-width:145px!important;		
+	}
+	
+
+	.headerPic {
+		display: none;
+	}
+
+	
+}
+#global_container {
+	position: relative;
+	width: 90%;
+	margin: 0 auto;
+	background-color: transparent;
+	min-height: 100%;
+	max-width:740px;
+}
+
+.bg {
+	position: absolute;
+	float: left;
+	width: 100%;
+
+}
+
+#container {
+	position: relative;
+	width: 740px;
+	margin: 0 auto;
+	background-color: transparent;
+	min-height: 300px;
+}
+
+hgroup {
+	min-height:130px!important;
+	padding: 0px;
+}
+
+#intro {
+	width: 100%;
+	position: relative;
+	float: left;
+	height: 130px;
+	background-color: #3d4859;
+}
+
+table {
+	width: 90%;
+}
+
+#wrapitup {
+	background-color: 
+	#3D4859;
+	position: absolute;
+	min-width: 740px;
+	/*max-width: 740px;
+*/	top: -10px;
+	-moz-box-shadow: 5px 5px 8px #535252;
+	-webkit-box-shadow: 5px 5px 8px #535252;
+	box-shadow: 5px 5px 8px #535252;
+}
+
+.red {
+	color:#e34233;
+}
+
+.callout {
+	background-color:#5b6471;
+}
+.blueHR {
+	border-top: 2px solid #3d4958;
+}
+
+
